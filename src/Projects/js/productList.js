@@ -8,9 +8,9 @@
             const ul = document.getElementById('productListUl')
             ul.innerHTML = ''
             data.map((item) => {
-            
                 let li = document.createElement('li');
                 li.setAttribute('class', ' relative mt-5 p-1  max-w-md bg-white border-gray-200 rounded-lg overflow-hidden shadow');
+                li.setAttribute('id',`${item.id}`)
                 li.innerHTML = `
                 <p class="py-2"><img src='${item.thumbnail}' class="w-full h-72 object-contain rounded-lg"></img> </p>
                     <p class="py-2" >${item.title} </p>
@@ -19,15 +19,12 @@
                 addTOCartButton.setAttribute('class', 'w-full p-3 bg-blue-500 text-white')
                 addTOCartButton.innerText = 'Add to Cart'
                 addTOCartButton.addEventListener('click', () => {
-                    window.location.href = `addToCartPage.html?id=${item.id}`;
+                    window.location.href = `http://127.0.0.1:5500/src/Projects/html/addToCartPage.html?id=${item.id}`;
                 })
                 li.appendChild(addTOCartButton)
                 ul.append(li)
             })
-
-
         },
-
 
         fetchDummydata: async function () {
             try {
